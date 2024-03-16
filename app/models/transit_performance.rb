@@ -1,0 +1,2 @@
+class TransitPerformance < ApplicationRecord
+end

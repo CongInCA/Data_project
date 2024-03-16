@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  driver_id: 1
+  day_id: 1
+  stop_number: MyString
+  route_number: MyString
+  route_name: MyString
+  route_destination: MyString
+  scheduled_time: 2024-03-16 12:00:06
+  deviation: 1
+
+two:
+  driver_id: 1
+  day_id: 1
+  stop_number: MyString
+  route_number: MyString
+  route_name: MyString
+  route_destination: MyString
+  scheduled_time: 2024-03-16 12:00:06
+  deviation: 1
