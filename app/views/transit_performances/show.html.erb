@@ -4,5 +4,5 @@
 <p><strong>Route Destination:</strong> <%= @transit_performance.route_destination %></p>
 <p><strong>Scheduled Time:</strong> <%= @transit_performance.scheduled_time %></p>
 <p><strong>Deviation:</strong> <%= @transit_performance.deviation %></p>
-<p><strong>Driver:</strong> <%= @driver.name %></p>
-<p><strong>Day Type:</strong> <%= @day_type.day_type %></p>
+<p><strong>Driver:</strong> <%= link_to @driver.name, driver_path(@driver) %></p>
+<p><strong>Day Type:</strong> <%= link_to @day_type.day_type, day_type_path(@day_type) %></p>
