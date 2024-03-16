@@ -1,6 +1,7 @@
 class TransitPerformancesController < ApplicationController
     def index
-      @transit_performances = TransitPerformance.all
+        # Use page and per method to show different pages.
+        @transit_performances = TransitPerformance.page(params[:page]).per(20)
     end
     def about
     end
