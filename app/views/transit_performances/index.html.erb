@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Route Number</th>
+      <th>Route Name</th>
+      <th>Route Destination</th>
+      <th>Scheduled Time</th>
+      <th>Deviation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transit_performances.each do |performance| %>
+      <tr>
+        <td><%= performance.route_number %></td>
+        <td><%= performance.route_name %></td>
+        <td><%= performance.route_destination %></td>
+        <td><%= performance.scheduled_time %></td>
+        <td><%= performance.deviation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
