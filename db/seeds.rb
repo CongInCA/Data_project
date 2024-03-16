@@ -43,6 +43,6 @@ end
 # Import data from CSV
 require 'csv'
 
-CSV.foreach('path/to/day_types.csv', headers: true) do |row|
+CSV.foreach('./day_types.csv', headers: true) do |row|
 DayType.create(day_id: row['day_id'], day: row['day'])
 end
