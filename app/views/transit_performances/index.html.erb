@@ -11,11 +11,11 @@
   <tbody>
     <% @transit_performances.each do |performance| %>
       <tr>
-        <td><%= performance.route_number %></td>
-        <td><%= performance.route_name %></td>
-        <td><%= performance.route_destination %></td>
-        <td><%= performance.scheduled_time %></td>
-        <td><%= performance.deviation %></td>
+        <td><%= link_to performance.route_number, transit_performance_path(performance) %></td>
+        <td><%= link_to performance.route_name, transit_performance_path(performance) %></td>
+        <td><%= link_to performance.route_destination, transit_performance_path(performance) %></td>
+        <td><%= link_to performance.scheduled_time, transit_performance_path(performance) %></td>
+        <td><%= link_to performance.deviation, transit_performance_path(performance) %></td>
       </tr>
     <% end %>
   </tbody>

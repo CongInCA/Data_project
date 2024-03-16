@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   root "transit_performances#index"
 
   resources :transit_performances
+  resources :transit_performances, only: [:index, :show]
 
 end
