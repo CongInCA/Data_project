@@ -1,0 +1,6 @@
+<h1>Transit Performances</h1>
+<ul>
+  <% @transit_performances.each do |performance| %>
+    <li><%= link_to performance.route_name, transit_performance_path(performance) %></li>
+  <% end %>
+</ul>

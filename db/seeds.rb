@@ -11,6 +11,7 @@
 # Import data from API
 require 'net/http'
 require 'json'
+require 'csv'
 
 uri = URI('https://data.winnipeg.ca/resource/gp3k-am4u.json')
 response = Net::HTTP.get(uri)
@@ -18,10 +19,11 @@ transit_data = JSON.parse(response)
 
 transit_data.each do |data|
     day_type = data['day_type']
-    day = DayType.find_or_create_by(day: day_type)
+    day = DayType.find_or_create_by(day_type: day_type)
+    driver_id = rand(1..300)
 
   TransitPerformance.create(
-    driver_id: Faker::Number.unique.between(from: 1, to: 10),
+    driver_id: driver_id,
     day_id: day.id,
     stop_number: data['stop_number'],
     route_number: data['route_number'],
@@ -33,16 +35,15 @@ transit_data.each do |data|
 end
 
 # Import data from faker
-10.times do
+300.times do
     Driver.create(
       name: Faker::Name.name,
+      age: Faker::Number.between(from: 20, to: 60),
       license_number: Faker::IDNumber.unique.valid
     )
   end
-  
-# Import data from CSV
-require 'csv'
 
-CSV.foreach('./day_types.csv', headers: true) do |row|
-DayType.create(day_id: row['day_id'], day: row['day'])
+# Import data from CSV
+CSV.foreach('/Users/captainchenn/Desktop/3011 ruby/Data_project/Data_project/days.csv', headers: true) do |row|
+DayType.create(day_id: row['day_id'], day_type: row['day_type'])
 end
