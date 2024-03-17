@@ -9,6 +9,7 @@
 #   end
 
 # Import data from API
+require 'uri'
 require 'net/http'
 require 'json'
 require 'csv'
@@ -22,7 +23,7 @@ transit_data.each do |data|
     day = DayType.find_or_create_by(day_type: day_type)
     driver_id = rand(1..300)
 
-  TransitPerformance.create(
+    TransitPerformance.create(
     driver_id: driver_id,
     day_id: day.id,
     stop_number: data['stop_number'],
