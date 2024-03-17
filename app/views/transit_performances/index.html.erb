@@ -1,29 +1,43 @@
-<%= form_tag transit_performances_path, method: :get do %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3"> 
+      <%= form_tag transit_performances_path, method: :get do %>
+        <div class="input-group mb-3">
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search route name" %>
+          <div class="input-group-append">
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <%= text_field_tag :query, params[:query], placeholder: "search route name" %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Route Number</th>
-      <th>Route Name</th>
-      <th>Route Destination</th>
-      <th>Scheduled Time</th>
-      <th>Deviation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @transit_performances.each do |performance| %>
+<div class="container">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to performance.route_number, transit_performance_path(performance) %></td>
-        <td><%= link_to performance.route_name, transit_performance_path(performance) %></td>
-        <td><%= link_to performance.route_destination, transit_performance_path(performance) %></td>
-        <td><%= link_to performance.scheduled_time, transit_performance_path(performance) %></td>
-        <td><%= link_to performance.deviation, transit_performance_path(performance) %></td>
+        <th>Route Number</th>
+        <th>Route Name</th>
+        <th>Route Destination</th>
+        <th>Scheduled Time</th>
+        <th>Deviation</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @transit_performances %>
+    </thead>
+    <tbody>
+      <% @transit_performances.each do |performance| %>
+        <tr>
+          <td><%= link_to performance.route_number, transit_performance_path(performance) %></td>
+          <td><%= link_to performance.route_name, transit_performance_path(performance) %></td>
+          <td><%= link_to performance.route_destination, transit_performance_path(performance) %></td>
+          <td><%= link_to performance.scheduled_time, transit_performance_path(performance) %></td>
+          <td><%= link_to performance.deviation, transit_performance_path(performance) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <%= paginate @transit_performances %>
+</div>
