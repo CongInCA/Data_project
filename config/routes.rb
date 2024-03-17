@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   resources :drivers, only: [:index, :show]
   resources :day_types, only: [:index, :show]
 
+  resources :transit_performances do
+    collection do
+      get :search
+    end
+  end
 end

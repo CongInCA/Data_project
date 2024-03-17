@@ -1,3 +1,12 @@
+<%= form_with(url: search_transit_performances_path, method: :get) do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Enter search term" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% @transit_performances.each do |transit_performance| %>
+  <%= transit_performance.route_name %>
+<% end %>
+
 <table>
   <thead>
     <tr>

@@ -1,7 +1,10 @@
 class TransitPerformancesController < ApplicationController
     def index
-        # Use page and per method to show different pages.
-        @transit_performances = TransitPerformance.page(params[:page]).per(20)
+        if params[:query].present?
+            @transit_performances = TransitPerformance.where("route_name LIKE ?", "%#{params[:query]}%").page(params[:page]).per(20)
+          else
+            @transit_performances = TransitPerformance.page(params[:page]).per(20)
+          end
     end
     def about
     end
