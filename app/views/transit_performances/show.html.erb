@@ -6,3 +6,28 @@
 <p><strong>Deviation:</strong> <%= @transit_performance.deviation %></p>
 <p><strong>Driver:</strong> <%= link_to @driver.name, driver_path(@driver) %></p>
 <p><strong>Day Type:</strong> <%= link_to @day_type.day_type, day_type_path(@day_type) %></p>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<script>
+  function initMap() {
+    // Create a LatLng object with the given latitude and longitude
+    var latLng = new google.maps.LatLng(<%= @transit_performance.latitude %>, <%= @transit_performance.longitude %>);
+
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: latLng,
+      zoom: 15
+    });
+
+    // Create a marker and set its position
+    var marker = new google.maps.Marker({
+      map: map,
+      position: latLng
+    });
+  }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEvGFXtQpoHPGGpvedFlvdVf0Q58QeA94&callback=initMap">
+</script>

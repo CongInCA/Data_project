@@ -22,10 +22,15 @@ transit_data.each do |data|
     day_type = data['day_type']
     day = DayType.find_or_create_by(day_type: day_type)
     driver_id = rand(1..300)
+    location_data = data['location']
+    longitude = location_data['coordinates'][0]
+    latitude = location_data['coordinates'][1]
 
     TransitPerformance.create(
     driver_id: driver_id,
     day_id: day.id,
+    longitude: longitude,
+    latitude: latitude,
     stop_number: data['stop_number'],
     route_number: data['route_number'],
     route_name: data['route_name'],
