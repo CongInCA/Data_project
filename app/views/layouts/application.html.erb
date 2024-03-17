@@ -13,16 +13,17 @@
   </head>
 
   <body>
-  <h1>Welcome to Transit On-Time Performance Data center!</h1>
-  <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Drivers', drivers_path %></li>
-      <li><%= link_to 'Daytypes', day_types_path %></li>
-
-    </ul>
-  </nav>
+    <div class="container">
+      <h1>Welcome to Transit On-Time Performance Data center!</h1>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><%= link_to 'Home', root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to 'About', about_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to 'Drivers', drivers_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to 'Daytypes', day_types_path, class: "nav-link" %></li>
+        </ul>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>
